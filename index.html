@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <title>Todo List</title>
+  </head>
+  <body>
+    <div id="app">
+      <div class="stats">
+        <h3 class="stats__title">{{"Current tasks: "+tasks.length }}</h3>
+        <task :data="data" v-for="(data,index) in tasks" :key="index" @task_done="delete_task(index)"></task>
+      </div>
+      <div class="add_task">
+          <div class="add_task__input">
+              <input type="text" v-model="new_task.title" placeholder="new task"/>
+        <textarea v-model="new_task.desc" placeholder="task description"></textarea>
+          </div>
+        <button @click="add_task()" class="add_task__btn">➕</button>
+      </div>
+    </div>
+  </body>
+  <script src="script.js"></script>
+</html>
